@@ -1,0 +1,56 @@
+= HatenaBM
+
+HatenaBM is Hatena Bookmark binding for Ruby.
+(Hatena Bookmark is Japanese Social Bookmark Service.)
+
+-  Hatena Bookmark : http://b.hatena.ne.jp
+-  Hatena Bookmark API Reference (Japanese) : http://d.hatena.ne.jp/keyword/%A4%CF%A4%C6%A4%CA%A5%D6%A5%C3%A5%AF%A5%DE%A1%BC%A5%AFAtomAPI
+
+== Installation
+
+ $ sudo gem install hatenabm
+
+== Usage
+
+ require 'rubygems'
+ require 'hatenabm'
+ require 'pp'
+
+ # initialize
+ hbm = HatenaBM.new(
+   :user => "username",
+   :pass => "password"
+ )
+ 
+ # post new bookmark
+ hbm.post(
+   :title => "bookmark's title",  # title
+   :link => "http://www.example.com", # url
+   :tags => "foo bar", # tags (separate space)
+   :summary => "this is example post." # description of this bookmark
+ )
+ 
+ # show recent bookmarks (Atom Feed)
+ pp hbm.recent
+ 
+ # show specified bookmark
+ pp hbm.get(:eid => "4211817")  # eid - bookmark's id
+ 
+ # modify posted bookmark
+ hbm.modify(
+   :eid => "421817",  # eid
+   :tags => "bar com",  # tags (separate space)
+   :summary => "modify bookmark's description"
+ )
+ 
+ # delete specified bookmark
+ hbm.delete(:eid => "421817")  # eid
+
+== Author 
+-  drawnboy ( http://d.hatena.ne.jp/drawnboy ) <drawn.boy@gmail.com.nospam> 
+-  s-tanaka wrote get_wsse method
+-  gorou ( http://rails2u.com )
+-  nog ( http://cureblack.com/ )
+
+== License
+- 2-clause BSD Lisence 

@@ -1,0 +1,12 @@
+= HatenaBM  Changelog
+
+== Version 0.1.2
+define HTTP DELETE method, if using ruby 1.8.3 later.
+
+== Version 0.1.1
+fix bug (appear warnning message).
+
+== Version 0.1.0
+initial release
+
+* initial release
